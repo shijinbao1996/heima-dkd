@@ -202,6 +202,7 @@ $cursor: #ccc;
     color: #454545;
     border: 1px #eee solid;
      .el-form-item__content{
+      height: 52px;
      display: flex;
      .el-col el-col-17{
           width: 70.8333333333%;
