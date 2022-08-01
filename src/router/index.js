@@ -22,7 +22,7 @@ import Layout from '@/layout'
     icon: 'svg-name'/'el-icon-x' the icon show in the sidebar
     breadcrumb: false            if set false, the item will hidden in breadcrumb(default is true)
     activeMenu: '/example/list'  if set path, the sidebar will highlight the path you set
-  }
+  } 
  */
 
 /**
@@ -31,6 +31,10 @@ import Layout from '@/layout'
  * all roles can be accessed
  */
 export const constantRoutes = [
+  {
+    path:'/home',
+    component:() => import('@/views/home'),
+  },
   {
     path: '/login',
     component: () => import('@/views/login/index'),

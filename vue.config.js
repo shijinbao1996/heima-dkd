@@ -27,7 +27,7 @@ module.exports = {
   publicPath: '/',
   outputDir: 'dist',
   assetsDir: 'static',
-  lintOnSave: process.env.NODE_ENV === 'development',
+  lintOnSave: false,
   productionSourceMap: false,
   devServer: {
     port: port,
@@ -38,7 +38,7 @@ module.exports = {
     },
     proxy:{
       '/api':{
-        target:'http://likede2-admin.itheima.net/likede/'
+        target:'http://likede2-admin.itheima.net/likede/' // 跨域请求的地址（服务器）
       }
     }
   },
