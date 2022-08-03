@@ -48,7 +48,7 @@
       </el-form-item>
 
       <!-- 验证码 -->
-      <el-form-item class="el-form-item__content" prop="code">
+      <el-form-item class="el-form-item__content" prop="confirmCode">
         <div class="el-col el-col-17">
           <span class="svg-container">
             <svg-icon icon-class="user" />
@@ -123,7 +123,7 @@ export default {
       },
       loading: false,
       passwordType: "password",
-      redirect: undefined,
+      redirect: undefined, 
     };
   },
   // watch: {
@@ -143,7 +143,7 @@ export default {
     // 登录按钮
     loginBtn() {
       const dataObj = {
-        clientToken: this.loginForm.codeNum,
+        clientToken: this.loginForm.codeNum, 
         code: this.loginForm.confirmCode,
         loginName: this.loginForm.username,
         loginType: 0,

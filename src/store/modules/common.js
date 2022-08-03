@@ -8,10 +8,10 @@ export default {
     }, 
     mutations:{
         setCode(state,payload){
-            state.codeImg = payload
+            state.codeImg = payload 
         },
         setToken(state,payload){
-            state.token = payload
+            state.token = payload 
         }
     },
     actions:{
@@ -24,11 +24,10 @@ export default {
         // 登录请求
         async login(context,payload) {
             const res = await confirmLogin(payload)
-            // console.log(res);
+            console.log(res);
             // console.log(context);
             context.commit('setToken',res.data.token)
-            console.log(context.state.token);
-            console.log(res.data.success);
+            console.log(res.data.token);
             if(res.data.success){
              router.push('/')
             }
