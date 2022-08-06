@@ -15,7 +15,7 @@ const store = new Vuex.Store({
     user,
     common
   },
-  getters,
+  getters, 
   plugins:[
     createVuexPersisted({
       reducer(state){

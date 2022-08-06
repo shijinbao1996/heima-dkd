@@ -1,22 +1,24 @@
 <template>
-  <!-- <div :class="{'has-logo':showLogo}">
-    <logo v-if="showLogo" :collapse="isCollapse" />
+  <div :class="{ 'has-logo': showLogo }">
+    <logo v-if="showLogo" />
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
         :default-active="activeMenu"
-        :collapse="isCollapse" 
-        :background-color="variables.menuBg"
+        :background-color="variables.menuBga"
         :text-color="variables.menuText"
         :unique-opened="false"
         :active-text-color="variables.menuActiveText"
-        :collapse-transition="false"
         mode="vertical"
       >
-        <sidebar-item v-for="route in routes" :key="route.path" :item="route" :base-path="route.path" />
+        <sidebar-item
+          v-for="route in routes"
+          :key="route.path"
+          :item="route"
+          :base-path="route.path"
+        />
       </el-menu>
     </el-scrollbar>
-  </div> -->
-  <div></div>
+  </div>
 </template>
 
 <script>
@@ -48,7 +50,7 @@ export default {
       return variables;
     },
     isCollapse() {
-      return !this.sidebar.opened;
+      // return !this.sidebar.opened;
     },
   },
 };

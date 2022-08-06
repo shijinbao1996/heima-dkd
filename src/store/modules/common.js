@@ -1,10 +1,13 @@
-import { verificationCode,confirmLogin } from "@/api"; 
+import { verificationCode,confirmLogin,getUserDetailApi } from "@/api"; 
 import router from '@/router/index'
+import {setTokenTime} from '@/utils/auth'
 export default {
     namespaced: true,
     state:{
-        codeImg:'', 
-        token:''
+        codeImg:'',  
+        token:'',
+        userInfo:{},
+        userDetail:{}
     }, 
     mutations:{
         setCode(state,payload){
@@ -12,7 +15,13 @@ export default {
         },
         setToken(state,payload){
             state.token = payload 
-        }
+        },
+        setUserInfo(state,payload){
+            state.userInfo = payload 
+        },
+        setUserDetail(state,payload){
+            state.userDetail = payload 
+        },
     },
     actions:{
         // 获取验证码
@@ -25,12 +34,22 @@ export default {
         async login(context,payload) {
             const res = await confirmLogin(payload)
             console.log(res);
-            // console.log(context);
             context.commit('setToken',res.data.token)
-            console.log(res.data.token);
+            context.commit('setUserInfo',res.data)
+            setTokenTime()
             if(res.data.success){
              router.push('/')
             }
+        },
+        async getUserDetail(context){
+            console.log(context.state.userInfo.id);
+             const res = await getUserDetailApi(1)
+             context.commit('setUserDetail',res)
+             console.log(res);
+        },
+        logout(context) {
+            context.commit('setUserInfo',{})
+            context.commit('setToken','')
         }
     },
 }

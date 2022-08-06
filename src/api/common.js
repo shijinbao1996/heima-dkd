@@ -7,7 +7,7 @@ import request from '@/utils/request'
  */
 export const verificationCode = (params)=> {
   return request({
-    url: `/user-service/user/imageCode/${params}`,
+    url: `/api/user-service/user/imageCode/${params}`,
   })
 }
  
@@ -19,7 +19,7 @@ export const verificationCode = (params)=> {
 export const confirmLogin = (dataObj)=> {
   return request({
     method:"POST",
-    url: `/user-service/user/login`,
+    url: `/api/user-service/user/login`,
     data:dataObj
   })
 }

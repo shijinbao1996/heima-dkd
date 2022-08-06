@@ -6,9 +6,13 @@ const whiteList = ['/login','/404']
 router.beforeEach((to,from,next)=>{
     const token = store.state.common.token
     console.log(token);
-    // 有token
+    // 有token 
    if(token) {
-      console.log(111);
+      store.dispatch('common/getUserDetail')
+   //    console.log(store.state.common.userInfo.userId);
+   //   if(!store.state.common.userInfo.userId){
+   //    store.dispatch('common/getUserDetail')
+   //   }
      if(to.path ==='/login'){
         console.log(111);
         next('/')

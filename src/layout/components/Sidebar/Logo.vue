@@ -17,12 +17,7 @@
 <script>
 export default {
   name: "SidebarLogo",
-  props: {
-    collapse: {
-      type: Boolean,
-      required: true,
-    },
-  },
+  props: {},
   data() {
     return {
       title: "Vue Admin Template",

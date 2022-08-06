@@ -123,7 +123,7 @@ export default {
       },
       loading: false,
       passwordType: "password",
-      redirect: undefined, 
+      redirect: undefined,
     };
   },
   // watch: {
@@ -140,16 +140,23 @@ export default {
       this.loginForm.codeNum = Math.random();
       this.$store.dispatch("common/getCode", this.loginForm.codeNum);
     },
-    // 登录按钮
-    loginBtn() {
-      const dataObj = {
-        clientToken: this.loginForm.codeNum, 
-        code: this.loginForm.confirmCode,
-        loginName: this.loginForm.username,
-        loginType: 0,
-        password: this.loginForm.password,
-      };
-      this.$store.dispatch("common/login", dataObj);
+    // 登录按钮 
+    async loginBtn() { 
+      this.loading = true;
+      try {
+        const dataObj = {
+          clientToken: this.loginForm.codeNum,
+          code: this.loginForm.confirmCode,
+          loginName: this.loginForm.username,
+          loginType: 0,
+          password: this.loginForm.password,
+        };
+        await this.$store.dispatch("common/login", dataObj);
+      } catch (error) {
+        console.log(error);
+      } finally { 
+        this.loading = false;
+      }
     },
     // 密码是否可见
     showPwd() {

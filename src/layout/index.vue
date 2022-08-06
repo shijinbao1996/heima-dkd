@@ -1,11 +1,7 @@
 <template>
   <div :class="classObj" class="app-wrapper">
-    <div
-      v-if="device === 'mobile' && sidebar.opened"
-      class="drawer-bg"
-      @click="handleClickOutside"
-    />
-    <!-- <sidebar class="sidebar-container" /> -->
+    <div class="drawer-bg" />
+    <sidebar class="sidebar-container" />
     <div :class="{ 'fixed-header': fixedHeader }">
       <navbar />
     </div>
@@ -39,17 +35,17 @@ export default {
     },
     classObj() {
       return {
-        hideSidebar: !this.sidebar.opened,
-        openSidebar: this.sidebar.opened,
+        // hideSidebar: !this.sidebar.opened,
+        // openSidebar: this.sidebar.opened,
         withoutAnimation: this.sidebar.withoutAnimation,
         mobile: this.device === "mobile",
       };
     },
   },
   methods: {
-    handleClickOutside() {
-      this.$store.dispatch("app/closeSideBar", { withoutAnimation: false });
-    },
+    // handleClickOutside() {
+    //   this.$store.dispatch("app/closeSideBar", { withoutAnimation: false });
+    // },
   },
 };
 </script>
@@ -69,7 +65,7 @@ export default {
   }
 }
 .drawer-bg {
-  background: #000;
+  background: #f8fafd;
   opacity: 0.3;
   width: 100%;
   top: 0;
